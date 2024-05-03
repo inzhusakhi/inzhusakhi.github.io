@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Одностраничный сайт</title>
+    <style>
+        /* Стили для панели навигации */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #000080;
+            color: #000080;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            color: #FFFFF0;
+            text-decoration: none;
+        }
+
+        /* Стили для разделов страницы */
+        .section {
+            display: none;
+            padding: 20px;
+        }
+
+        .section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Панель навигации -->
+<nav>
+    <ul>
+        <li><a href="#home" class="nav-link">Главная</a></li>
+        <li><a href="#about" class="nav-link">Обо мне</a></li>
+        <li><a href="#skills" class="nav-link">Навыки</a></li>
+        <li><a href="#image" class="nav-link">Изображение</a></li>
+        <li><a href="#audio" class="nav-link">Аудио</a></li>
+        <li><a href="#video" class="nav-link">Видео</a></li>
+        <li><a href="#map" class="nav-link">Карта</a></li>
+        <li><a href="#animation" class="nav-link">Анимация</a></li> 
+
+    </ul>
+</nav>
+
+<!-- Содержимое страницы -->
+<div id="home" class="section active">
+    <h2>Welcome!</h2>
+    <p>INZHU's home page.</p>
+</div>
+
+<div id="about" class="section">
+    <h2>About me</h2>
+    <p>Inzhu Sakhi. 17 y.o. Astana.</p>
+</div>
+
+<div id="skills" class="section">
+    <h2>Skills</h2>
+    <p>Этот раздел посвящен моим навыкам и умениям.</p>
+</div>
+
+<div id="image" class="section">
+    <h2>Image</h2>
+    <p>Здесь будет размещено какое-то изображение.</p>
+<img src="pearl.png"/>
+</div>
+
+<div id="audio" class="section">
+ <h2>Аудио</h2>
+ <audio controls>
+ <source src="audio.mp3">
+ </audio>
+</div>
+
+<div id="video" class="section">
+ <h2>Видео</h2>
+ <video controls>
+ <source src="video.inzhu.mp4" type="video/mp4">
+ </video>
+</div>
+
+<div id="map" class="section">
+ <h2>Карта</h2>
+ <iframe 
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1453.2392150132307!2d76.9480083!3d43.2413939!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38836ee5e901080f%3A0x54fb4f9ef6bf806a!2z0KTRgNCw0L3RhtGD0LfRgdC60LjQuSDQtNC-0Lw!5e0!3m2!1sru!2skz!4v1714729673372!5m2!1sru!2skz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"
+</iframe>
+</div>
+
+   <div id="animation" class="section">
+ <h2>Анимация</h2>
+ <p class="animate">Пример текста с 
+анимацией.</p>
+</div>
+
+<!-- Подключение скрипта -->
+<script>
+    // Получаем все ссылки панели навигации
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Получаем все разделы страницы
+    const sections = document.querySelectorAll('.section');
+
+    // Добавляем обработчик события для каждой ссылки
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Получаем идентификатор раздела, на который ссылается ссылка
+            const targetId = link.getAttribute('href').substring(1);
+
+            // Отображаем целевой раздел, скрывая все остальные
+            sections.forEach(section => {
+                if (section.id === targetId) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
